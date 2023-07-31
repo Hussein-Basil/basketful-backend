@@ -11,9 +11,6 @@ const orderRouter = require("./routes/order.routes");
 const categoryRouter = require("./routes/category.routes");
 const discountRouter = require("./routes/discount.routes");
 
-const injectUsers = require("./injects/injectUsers");
-const injectStores = require("./injects/injectStores");
-
 const corsOptions = require("./config/corsOptions");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
@@ -50,10 +47,6 @@ const main = async () => {
   app.use("/api/order", orderRouter);
   app.use("/api/category", categoryRouter);
   app.use("/api/discount", discountRouter);
-
-  // injecting hardcoded data to database
-  injectUsers();
-  injectStores();
 
   const today = new Date();
   const time =
