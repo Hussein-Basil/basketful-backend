@@ -1,56 +1,13 @@
-const express = require("express")
-const router = express.Router()
-require('dotenv').config()
+const express = require("express");
+const router = express.Router();
 
-const Product = require("../models/product")
+const productController = require("../controllers/product.controller");
 
-router.get("/:id?", (req, res) => {
-    if (req.params.id) {
-        Product.findById(req.params.id, (err, product) => {
-            if (err) {
-                return res.status(500).send(err)
-            }
-            res.json(product)
-        })
-    } else {
-        Product.find({}, (err, products) => {
-            if (err) {
-                return res.status(500).send(err)
-            }
-            res.json(products)
-        })
-    }
-})
+router.route("/:id").get(productController.handleGetProductById);
 
-router.post("/:id", (req, res) => {
-    const {
-        name,
-        description,
-        storeID,
-        categoryID,
-        price,
-        image,
-        stockQuantity,
-        discountID
-    } = req.body
+router
+  .route("/")
+  .get(productController.handleGetAllProducts)
+  .post(productController.handleCreateProduct);
 
-    const product = new Product({
-        name,
-        description,
-        storeID,
-        categoryID,
-        price,
-        image,
-        stockQuantity,
-        discountID
-    })
-
-    product.save((err) => {
-        if (err) {
-            return res.status(500).send(err)
-        }
-        res.status(200).json({ message: 'Product created successfully' })
-    })
-})
-
-module.exports = router
+module.exports = router;

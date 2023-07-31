@@ -1,0 +1,352 @@
+[
+  {
+    
+    "name": "Oculus Quest 2 - Advanced All-In-One Virtual Reality Headset - 256 GB",
+    "price": 100000,
+    "discount": {
+      "id": 1,
+      "name": "Back to School",
+      "description": "Get a discount on your first purchase",
+      "discount": 10,
+      "status": "active"
+    },
+    "available": true,
+    "category": "Video Games",
+    "subcategory": "Virtual Reality",
+    "rating": {
+      "total": 18,
+      "score": 2.9,
+      "distribution": [5, 2, 3, 2, 6]
+    },
+    "reviews": [
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.\n Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      }
+    ],
+    "images": [
+      "https://m.media-amazon.com/images/I/61kwRNPtMpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71IdqIdug2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81-++CoFIXL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ouW3oez-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71WHXX3oNqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/717SMiDKjVL._SL1500_.jpg",
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "shop": {
+      "id": 2,
+      "admin_id": 2,
+      "name": "Digital Store",
+      "logo": "Shop 2 image",
+      "city": "Shop 2 city",
+      "address": "Shop 2 address",
+      "phone": "Shop 2 phone",
+      "email": "Shop 2 email",
+      "website": "Shop 2 website",
+      "description": "Shop 2 description",
+      "delivery_time": "2 days",
+      "delivery_places": ["Baghdad, Iraq", "Basra, Iraq"]
+    },
+    "name": "AVITA LIBER 14 Inches - RYZEN 7 3700U - 8GB RAM - 512GB SSD - Black",
+    "price": 975000,
+    "discount": {
+      "id": 1,
+      "name": "Back to School",
+      "description": "Get a discount on your first purchase",
+      "discount": 10,
+      "status": "active"
+    },
+    "available": true,
+    "category": "Computers",
+    "subcategory": "PC",
+    "rating": {
+      "total": 37,
+      "score": 3.3,
+      "distribution": [9, 8, 8, 9, 3]
+    },
+    "reviews": [
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.\n Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      }
+    ],
+    "images": [
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg",
+      "https://m.media-amazon.com/images/I/61kwRNPtMpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71IdqIdug2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81-++CoFIXL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ouW3oez-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71WHXX3oNqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/717SMiDKjVL._SL1500_.jpg",
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "shop": {
+      "id": 1,
+      "admin_id": 1,
+      "name": "Gigabyte Store",
+      "logo": "Shop 1 image",
+      "city": "Shop 1 city",
+      "address": "Shop 1 address",
+      "phone": "Shop 1 phone",
+      "email": "Shop 1 email",
+      "website": "Shop 1 website",
+      "description": "Shop 1 description",
+      "delivery_time": "2 days",
+      "delivery_places": ["Baghdad, Iraq", "Basra, Iraq"]
+    },
+    "name": "Poso PS-501 Laptop Bag-Black",
+    "price": 35000,
+    "discount": {
+      "id": 1,
+      "name": "Back to School",
+      "description": "Get a discount on your first purchase",
+      "discount": 10,
+      "status": "active"
+    },
+    "available": true,
+    "category": "Computers",
+    "subcategory": "Accessories",
+    "rating": {
+      "total": 21,
+      "score": 2.1,
+      "distribution": [1, 3, 1, 9, 7]
+    },
+    "reviews": [
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.\n Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      }
+    ],
+    "images": [
+      "https://www.tamata.com/media/catalog/product/cache/9413d357ac30ba29949bdcb2c26de184/c/o/collbell14-1-2021-9.jpg",
+      "https://m.media-amazon.com/images/I/61kwRNPtMpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71IdqIdug2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81-++CoFIXL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ouW3oez-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71WHXX3oNqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/717SMiDKjVL._SL1500_.jpg",
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "shop": {
+      "id": 2,
+      "admin_id": 2,
+      "name": "Digital Store",
+      "logo": "Shop 2 image",
+      "city": "Shop 2 city",
+      "address": "Shop 2 address",
+      "phone": "Shop 2 phone",
+      "email": "Shop 2 email",
+      "website": "Shop 2 website",
+      "description": "Shop 2 description",
+      "delivery_time": "2 days",
+      "delivery_places": ["Baghdad, Iraq", "Basra, Iraq"]
+    },
+    "name": "Honor 2 Lite Wireless Earbuds",
+    "price": 103900,
+    "discount": {
+      "id": 2,
+      "name": "Christmas",
+      "description": "Get a discount on your first purchase",
+      "discount": 40,
+      "status": "active"
+    },
+    "available": false,
+    "category": "Mobile Phones",
+    "subcategory": "Accessories",
+    "rating": {
+      "total": 27,
+      "score": 3.6,
+      "distribution": [6, 9, 7, 4, 1]
+    },
+    "reviews": [
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.\n Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      }
+    ],
+    "images": [
+      "https://www.tamata.com/media/catalog/product/cache/9413d357ac30ba29949bdcb2c26de184/b/e/belltelalwatani2-1-2022-74.jpg",
+      "https://m.media-amazon.com/images/I/61kwRNPtMpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71IdqIdug2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81-++CoFIXL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ouW3oez-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71WHXX3oNqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/717SMiDKjVL._SL1500_.jpg",
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "shop": {
+      "id": 1,
+      "admin_id": 1,
+      "name": "Gigabyte Store",
+      "logo": "Shop 1 image",
+      "city": "Shop 1 city",
+      "address": "Shop 1 address",
+      "phone": "Shop 1 phone",
+      "email": "Shop 1 email",
+      "website": "Shop 1 website",
+      "description": "Shop 1 description",
+      "delivery_time": "2 days",
+      "delivery_places": ["Baghdad, Iraq", "Basra, Iraq"]
+    },
+    "name": "حقيبة ظهر بتصميم خفيف 16 لتر من Tandem Trail",
+    "price": 67500,
+    "discount": {
+      "id": 2,
+      "name": "Christmas",
+      "description": "Get a discount on your first purchase",
+      "discount": 40,
+      "status": "active"
+    },
+    "available": false,
+    "category": "Computers",
+    "subcategory": "Accessories",
+    "rating": {
+      "total": 14,
+      "score": 2.6,
+      "distribution": [2, 3, 0, 5, 4]
+    },
+    "reviews": [
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.\n Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      },
+      {
+        "reviewer": "Hussein Basil",
+        "avatar": "",
+        "title": "Breathtaking, easy to use and set up",
+        "rating": 5,
+        "date": "December 5, 2021",
+        "verified": true,
+        "text": "I expected this to be good but not this amazing!! The app Wander has taken me to beautiful places I wish I could visit. You feel as if you are just flying.Watch the movie “We are stars” 360vr on YouTube and it will take your breath away! My grandson came over and played a drum game… he asked to have this for Christmas after he played it lol (he is 5) and "
+      }
+    ],
+    "images": [
+      "https://www.tamata.com/media/catalog/product/cache/9413d357ac30ba29949bdcb2c26de184/s/u/sunandsand1-4-2021sm-115.jpg",
+      "https://m.media-amazon.com/images/I/61kwRNPtMpL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71IdqIdug2L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81-++CoFIXL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/61ouW3oez-L._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/71WHXX3oNqL._SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/717SMiDKjVL._SL1500_.jpg",
+      "https://www.tamata.com/media/catalog/product/cache/b1b762920b4f64fe70902904558ecc11/t/a/taif-f-5-12-2021-24_1.jpg"
+    ]
+  }
+]

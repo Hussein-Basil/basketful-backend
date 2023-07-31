@@ -1,54 +1,69 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const session = require("express-session")
-const cors = require("cors")
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
-const authRouter = require('./routes/auth.routes')
-const userRouter = require('./routes/user.routes')
-const storeRotuer = require('./routes/store.routes')
-const productRouter = require('./routes/product.routes')
-const orderRouter = require('./routes/order.routes')
-const categoryRouter = require('./routes/category.routes')
-const discountRouter = require('./routes/discount.routes')
+const authRouter = require("./routes/auth.routes");
+const userRouter = require("./routes/user.routes");
+const storeRotuer = require("./routes/store.routes");
+const productRouter = require("./routes/product.routes");
+const orderRouter = require("./routes/order.routes");
+const categoryRouter = require("./routes/category.routes");
+const discountRouter = require("./routes/discount.routes");
 
-const sendEmail = require('./helpers/sendEmail')
+const injectUsers = require("./injects/injectUsers");
+const injectStores = require("./injects/injectStores");
+
+const corsOptions = require("./config/corsOptions");
+const { logger } = require("./middleware/logEvents");
+const errorHandler = require("./middleware/errorHandler");
+const credentials = require("./middleware/credentials");
+const PORT = process.env.PORT || 8000;
+
+// const sendEmail = require("./helpers/sendEmail");
 
 const main = async () => {
-    require("dotenv").config()
-    const app = express()
+  require("dotenv").config();
 
-    app.use(express.json())
-    app.use(session({
-        name: 'sid',
-        resave: false,
-        saveUninitialized: false,
-        secret: process.env.SESSION_SECRET,
-        cookie: {
-            httpOnly: true,
-            secure: process.env.NODE_ENV !== 'production',
-            maxAge: 60 * 60 * 24 * 7,
-        }
-    }))
-    app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
+  const app = express();
 
-    mongoose.connect("mongodb://localhost:27017/ratemyprofessor")
+  app.use(logger); // custom middleware logger
 
-    app.use("/api/auth", authRouter)
-    app.use("/api/user", userRouter)
-    app.use("/api/store", storeRotuer)
-    app.use("/api/product", productRouter)
-    app.use("/api/order", orderRouter)
-    app.use("/api/category", categoryRouter)
-    app.use("/api/discount", discountRouter)
+  // handle options credentials check - before CORS!
+  // and fetch cookies credentials requirement
+  app.use(credentials);
 
-    const today = new Date();
-    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  app.use(cors(corsOptions)); // Cross Origin Resource Sharing
 
-    app.listen(process.env.PORT || 8000, () => {
-        console.log('[LISTENING] app is listening on port', process.env.PORT || 8000, '@', time)
-    })
-}
+  app.use(express.json()); // bulit-in middleware for json
 
-main().catch(err => {
-    console.error(err)
-})
+  app.use(cookieParser()); // middleware fo cookies
+
+  // connecting to database
+  mongoose.connect("mongodb://localhost:27017/basketful");
+
+  // routes
+  app.use("/api/auth", authRouter);
+  app.use("/api/user", userRouter);
+  app.use("/api/store", storeRotuer);
+  app.use("/api/product", productRouter);
+  app.use("/api/order", orderRouter);
+  app.use("/api/category", categoryRouter);
+  app.use("/api/discount", discountRouter);
+
+  // injecting hardcoded data to database
+  injectUsers();
+  injectStores();
+
+  const today = new Date();
+  const time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+  app.use(errorHandler);
+
+  app.listen(PORT, () => {
+    console.log("[LISTENING] app is listening on port", PORT, "@", time);
+  });
+};
+
+main().catch(console.error);
