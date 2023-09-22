@@ -1,89 +1,114 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-const handleLogin = async function (req, res, next) {
-  const { email, password } = req.body;
+const loginUser = (req, res) => {
+  return new Promise(async (resolve, reject) => {
+    const { email, password } = req.body;
 
-  if (!email || !password) {
-    res.status(400).json({ message: "Bad request. Missing credentials!" });
-  }
+    if (!email || !password)
+      reject({
+        status: 400,
+        message: "Bad request. Missing credentials.",
+      });
 
-  const foundUser = await User.findOne({ email });
+    const foundUser = await User.findOne({ email });
 
-  if (!foundUser) {
-    return res.status(404).json({ message: "User is not found." });
-  }
+    if (!foundUser)
+      reject({
+        status: 404,
+        message: "User not found",
+      });
 
-  if (foundUser.validPassword(password)) {
-    const accessToken = jwt.sign(
-      { user: foundUser },
-      process.env.ACCESS_TOKEN_SECRET,
-      {
-        expiresIn: "30s",
-      }
-    );
+    if (foundUser.validPassword(password)) {
+      const accessToken = jwt.sign(
+        { user: foundUser },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "1h" }
+      );
 
-    const refreshToken = jwt.sign(
-      { username: foundUser.username },
-      process.env.REFRESH_TOKEN_SECRET,
-      {
-        expiresIn: "1d",
-      }
-    );
+      const refreshToken = jwt.sign(
+        { username: foundUser.username },
+        process.env.REFRESH_TOKEN_SECRET,
+        { expiresIn: "1d" }
+      );
 
-    foundUser.refreshToken = refreshToken;
+      foundUser.refreshToken = refreshToken;
+      foundUser.save();
 
-    foundUser.save();
+      req.user = foundUser;
+      res.cookie("jwt", refreshToken, { maxAge: 1000 * 3600 * 24, httpOnly: true });
 
-    res.cookie("jwt", refreshToken, { maxAge: 1000 * 3600 * 24 });
+      resolve({
+        status: 200,
+        data: {
+          accessToken,
+          roles: foundUser.roles,
+          user: foundUser,
+        },
+      });
+    }
 
-    res.status(200).json({ accessToken, roles: foundUser.roles });
-  } else {
-    res.status(401).json({ message: "Wrong password!" });
-  }
-};
-
-const handleRefreshToken = async (req, res) => {
-  const cookies = req.cookies;
-
-  if (!cookies?.jwt) return res.sendStatus(401);
-
-  const refreshToken = cookies.jwt;
-
-  const foundUser = await User.findOne({ refreshToken });
-
-  if (!foundUser) return res.sendStatus(403);
-
-  jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, decoded) => {
-    if (err) return res.sendStatus(403);
-    const accessToken = jwt.sign(
-      { user: foundUser },
-      process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "30s" }
-    );
-    res.json({ accessToken, roles: foundUser.roles });
+    reject({
+      status: 401,
+      message: "Wrong password!",
+    });
   });
 };
 
-const handleLogout = async (req, res) => {
-  // On client, also delete the accessToken
+const refreshToken = (req, res) => {
+  return new Promise(async (resolve, reject) => {
+    const cookies = req.cookies;
 
-  // refreshToken is required to log out
-  const cookies = req.cookies;
-  if (!cookies?.jwt) return res.sendStatus(401);
+    if (!cookies?.jwt) return reject({ status: 401 });
 
-  // Is refreshToken in database?
-  const foundUser = await User.findOne({ refreshToken: cookies.jwt });
+    const refreshToken = cookies.jwt;
 
-  res.clearCookie("jwt", { httpOnly: true });
+    const foundUser = await User.findOne({ refreshToken });
 
-  if (foundUser) {
-    // Delete refreshToken in database
-    foundUser.refreshToken = "";
-    foundUser.save();
-  }
+    if (!foundUser) return reject({ status: 403 });
 
-  res.sendStatus(204);
+    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err) => {
+      if (err) return reject({ status: 403 });
+      const accessToken = jwt.sign(
+        { user: foundUser },
+        process.env.ACCESS_TOKEN_SECRET,
+        { expiresIn: "1h" }
+      );
+      resolve({
+        status: 200,
+        data: {
+          accessToken,
+          roles: foundUser.roles,
+          user: foundUser,
+        },
+      });
+    });
+  });
 };
 
-module.exports = { handleLogin, handleRefreshToken, handleLogout };
+const logoutUser = (req, res) => {
+  return new Promise(async (resolve, reject) => {
+    // On client, also delete the accessToken
+
+    // refreshToken is required to log out
+    const cookies = req.cookies;
+    if (!cookies?.jwt)
+      reject({ status: 401, message: "Refresh token required!" });
+
+    // Is refreshToken in database?
+    const foundUser = await User.findOne({ refreshToken: cookies.jwt });
+
+    res.clearCookie("jwt", { httpOnly: true });
+    res.clearCookie("authorization", { httpOnly: true });
+
+    if (foundUser) {
+      // Delete refreshToken in database
+      foundUser.refreshToken = "";
+      foundUser.save();
+    }
+
+    resolve({ status: 204 });
+  });
+};
+
+module.exports = { loginUser, refreshToken, logoutUser };

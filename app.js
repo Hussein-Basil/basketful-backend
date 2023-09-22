@@ -10,6 +10,7 @@ const productRouter = require("./routes/product.routes");
 const orderRouter = require("./routes/order.routes");
 const categoryRouter = require("./routes/category.routes");
 const discountRouter = require("./routes/discount.routes");
+const adminRouter = require("./routes/admin.routes");
 
 const corsOptions = require("./config/corsOptions");
 const { logger } = require("./middleware/logEvents");
@@ -47,6 +48,8 @@ const main = async () => {
   app.use("/api/order", orderRouter);
   app.use("/api/category", categoryRouter);
   app.use("/api/discount", discountRouter);
+
+  app.use("/admin", adminRouter);
 
   const today = new Date();
   const time =

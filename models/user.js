@@ -7,7 +7,7 @@ const User = new mongoose.Schema(
     username: { type: String, require: true, unique: true },
     email: { type: String, require: true, unique: true },
     verifiedEmail: { type: Boolean, default: false },
-    hashedPassword: { type: String, require: true },
+    password: { type: String, require: true },
     firstName: { type: String, require: true },
     lastName: { type: String, require: true },
     address: {
@@ -28,7 +28,7 @@ const User = new mongoose.Schema(
     ],
     cart: [
       {
-        productId: {
+        product: {
           type: mongoose.Types.ObjectId,
           ref: "product",
           require: true,
@@ -38,7 +38,7 @@ const User = new mongoose.Schema(
     ],
     wishlist: [
       {
-        productId: {
+        product: {
           type: mongoose.Types.ObjectId,
           ref: "product",
           require: true,
@@ -58,7 +58,13 @@ User.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 User.methods.validPassword = function (password) {
-  return bcrypt.compareSync(password, this.hashedPassword);
+  return bcrypt.compareSync(password, this.password);
 };
+
+User.pre("save", function (next) {
+  if (!this.isModified("password")) return next();
+  this.password = this.generateHash(this.password);
+  next();
+});
 
 module.exports = mongoose.model("user", User);

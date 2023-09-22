@@ -6,7 +6,7 @@ const storeController = require("../controllers/store.controller");
 
 router
   .route("/:id")
-  .get(verifyJWT, storeController.handleGetStoreById)
+  .get(storeController.handleGetStoreById)
   .put(storeController.handleUpdateStore)
   .delete(storeController.handleDeleteStore);
 

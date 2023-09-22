@@ -1,9 +1,7 @@
 const express = require("express");
-const router = express.Router();
 require("dotenv").config();
 
 const User = require("../models/user");
-const Store = require("../models/store");
 
 const handleGetAllUsers = (req, res) => {
   User.find({}, (err, doc) => {
@@ -31,9 +29,8 @@ const handleCreateUser = (req, res) => {
     username,
     firstName,
     lastName,
+    password
   });
-
-  user.hashedPassword = user.generateHash(password);
 
   user.save((err) => {
     if (err) {
@@ -162,6 +159,62 @@ const handleAddPayment = (req, res) => {
   });
 };
 
+const handleAddToCart = async (req, res) => {
+  const { product, quantity } = req.body;
+
+  const foundUser = await User.findById(req.user._id);
+
+  if (!foundUser.cart) {
+    foundUser.cart = [{ product, quantity }];
+  } else {
+    const existingProduct = foundUser.cart.find(
+      (cartItem) => cartItem.product.toString() === product
+    );
+    if (existingProduct) {
+      existingProduct.quantity += quantity;
+    } else {
+      foundUser.cart.push({ product, quantity });
+    }
+  }
+
+  await foundUser.save();
+  req.user.cart = foundUser.cart;
+
+  res.status(200).json({ message: "Item added successfully" });
+};
+
+const handleUpdateCart = async (req, res) => {
+  const { product, quantity } = req.body;
+  const foundUser = await User.findById(req.user._id).populate("cart.product");
+
+  const existingProduct = foundUser.cart.find(
+    (item) => item.product?._id.toString() === product
+  );
+
+  if (!existingProduct) {
+    return res.status(404).json({ message: "Product not found" });
+  }
+
+  if (quantity === 0) {
+    foundUser.cart = foundUser.cart.filter(
+      (item) => item.product?._id.toString() !== product
+    );
+  } else {
+    existingProduct.quantity = quantity;
+  }
+
+  await foundUser.save();
+  req.user.cart = foundUser.cart;
+
+  res.status(200).json({ cart: foundUser.cart });
+};
+
+const handleGetCart = async (req, res) => {
+  const foundUser = await User.findById(req.user._id).populate("cart.product");
+
+  res.status(200).json({ cart: foundUser.cart });
+};
+
 module.exports = {
   handleGetAllUsers,
   handleGetUserById,
@@ -172,4 +225,7 @@ module.exports = {
   handleUpdateAddress,
   handleDeleteAddress,
   handleAddPayment,
+  handleAddToCart,
+  handleGetCart,
+  handleUpdateCart,
 };
