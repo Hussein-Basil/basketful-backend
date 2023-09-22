@@ -2565,3 +2565,12 @@
 20230921	21:55:07	a7d27fe8-5c32-47a8-bb0d-55c517d3874e	GET	http://localhost:3000	/api/product
 20230921	22:16:16	474a6ee8-85f7-4d92-b53a-049c1d1aaee1	GET	http://localhost:3000	/api/product
 20230921	22:18:31	dcf37e6c-7ecc-477a-adb7-7e3e01e1002e	GET	http://localhost:3000	/api/product
+20230922	07:51:52	0a82b9bd-1875-48ec-9245-c1c6ab95c0f3	GET	undefined	/
+20230922	07:51:59	ece0b431-0aba-4d73-b23f-a28519016d8a	GET	undefined	/products
+20230922	07:52:03	b4e856ca-8a85-44d3-990a-471ed8a4bdfa	GET	undefined	/product
+20230922	07:52:11	55337919-e409-4c42-a11d-659e8142a1a5	GET	undefined	/api/products
+20230922	07:52:18	920f7df5-f1b5-45a7-bdfc-fc6fd15977b1	GET	undefined	/api/product
+20230922	07:52:18	3f03167b-e0ba-4605-9f00-22fcc5ad9e74	GET	undefined	/favicon.ico
+20230922	07:52:26	65865d12-666e-4e26-a5c8-34e4938f4399	GET	undefined	/api/user
+20230922	07:53:04	21adcdca-8634-46e1-9747-8a2985b05fe1	GET	undefined	/api/user
+20230922	07:53:10	78844fcc-3ba5-4a0f-843f-1b8992b87968	GET	undefined	/api/product

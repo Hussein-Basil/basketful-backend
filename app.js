@@ -38,7 +38,7 @@ const main = async () => {
   app.use(cookieParser()); // middleware fo cookies
 
   // connecting to database
-  mongoose.connect("mongodb://localhost:27017/basketful");
+  mongoose.connect("mongodb+srv://timjab:green@cluster0.dhuwbuj.mongodb.net/basketful?retryWrites=true&w=majority");
 
   // routes
   app.use("/api/auth", authRouter);
