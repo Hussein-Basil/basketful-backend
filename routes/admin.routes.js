@@ -16,6 +16,8 @@ router.post("/login", (req, res) => {
       res.cookie("authorization", `Bearer ${response.data.accessToken}`, {
         maxAge: 1000 * 3600,
         httpOnly: true,
+        secure: true,
+        sameSite: "None",
       });
       res.redirect("/admin/dashboard");
     })

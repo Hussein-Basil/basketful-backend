@@ -36,7 +36,12 @@ const loginUser = (req, res) => {
       foundUser.save();
 
       req.user = foundUser;
-      res.cookie("jwt", refreshToken, { maxAge: 1000 * 3600 * 24, httpOnly: true });
+      res.cookie("jwt", refreshToken, {
+        maxAge: 1000 * 3600 * 24,
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+      });
 
       resolve({
         status: 200,
@@ -92,8 +97,10 @@ const logoutUser = (req, res) => {
 
     // refreshToken is required to log out
     const cookies = req.cookies;
-    if (!cookies?.jwt)
+    if (!cookies?.jwt) {
       reject({ status: 401, message: "Refresh token required!" });
+      return;
+    }
 
     // Is refreshToken in database?
     const foundUser = await User.findOne({ refreshToken: cookies.jwt });
